@@ -7,3 +7,5 @@ python -m venv .venv
 INSTALACION DE LIBRERIAS ESENCIALES
 
 pip install pandas numpy matplotlib scikit-learn
+
+

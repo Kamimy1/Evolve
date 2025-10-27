@@ -1,0 +1,87 @@
+📘 Instrucciones: Añadir un repositorio Git dentro de otro como submódulo
+
+Ejemplo:
+Ruta local: D:\Evolve\Prueba
+Repositorios remotos:
+
+Evolve: https://github.com/Kamimy1/Evolve
+
+Prueba: https://github.com/Kamimy1/Prueba
+
+🧩 1. Situación inicial
+
+Tienes dos repositorios separados:
+
+Evolve → repositorio principal.
+
+Prueba → repositorio que quieres incluir dentro de Evolve (ya está en una subcarpeta).
+
+⚙️ 2. Pasos para integrarlo correctamente como submódulo
+
+Abre una terminal o CMD en la carpeta del repositorio principal:
+
+cd D:\Evolve
+
+
+Elimina el vínculo antiguo del repositorio embebido (si existe):
+
+git rm --cached Prueba
+
+
+Verifica el estado:
+
+git status
+
+
+Deberías ver:
+
+Untracked files:
+  Prueba/
+
+
+Añade el repositorio Prueba como submódulo:
+
+git submodule add https://github.com/Kamimy1/Prueba.git Prueba
+
+
+Esto crea un archivo .gitmodules que guarda la relación entre ambos repos.
+
+Confirma y sube los cambios:
+
+git commit -m "Añadido submódulo Prueba"
+git push
+
+🔁 3. Clonar un repositorio con submódulos
+
+Cuando otra persona (o tú mismo en otro PC) clones Evolve, debe ejecutar:
+
+git clone https://github.com/Kamimy1/Evolve.git
+cd Evolve
+git submodule update --init --recursive
+
+
+Esto descargará automáticamente el contenido de Prueba.
+
+🔄 4. Actualizar el submódulo a su última versión
+
+Cuando haya cambios en Prueba y quieras traerlos al Evolve:
+
+cd Prueba
+git pull origin main
+cd ..
+git add Prueba
+git commit -m "Actualizado submódulo Prueba"
+git push
+
+🧹 5. Eliminar el submódulo (si algún día lo necesitas)
+git submodule deinit -f Prueba
+git rm -f Prueba
+rm -rf .git/modules/Prueba
+git commit -m "Eliminado submódulo Prueba"
+git push
+
+📄 Archivos importantes creados:
+
+.gitmodules → contiene la información del submódulo.
+
+.git/config → guarda la referencia local del submódulo.
