@@ -1,0 +1,9 @@
+CREACION DE UN ENTORNO VIRTUAL WINDOWS EN VS CODE 
+
+python -m venv .venv
+
+.venv\Scripts\activate
+
+INSTALACION DE LIBRERIAS ESENCIALES
+
+pip install pandas numpy matplotlib scikit-learn
