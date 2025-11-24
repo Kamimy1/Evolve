@@ -4,3 +4,9 @@
 [submodule "evolve-data-python"]
 	path = evolve-data-python
 	url = https://github.com/breogann/evolve-data-python.git
+[submodule "Breast-Cancer-EDA"]
+	path = Breast-Cancer-EDA
+	url = https://github.com/Kamimy1/Breast-Cancer-EDA.git
+[submodule "Proyecto1EDA"]
+	path = Proyecto1EDA
+	url = https://github.com/Kamimy1/Breast-Cancer-EDA.git
